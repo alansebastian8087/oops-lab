@@ -1,0 +1,82 @@
+import java.util.Scanner;
+
+class Shape {
+
+    double area(double length, double breadth) {
+        return length * breadth;
+    }
+
+    double area(int side) {
+        return side * side;
+    }
+
+    double area(double radius) {
+        return Math.PI * radius * radius;
+    }
+
+    double area(int base, double height) {
+        return 0.5 * base * height;
+    }
+}
+
+public class AreaCalculator {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        Shape obj = new Shape();
+        int ch;
+        char wish;
+
+        do {
+            System.out.println("\n----- MENU -----");
+            System.out.println("1. Rectangle");
+            System.out.println("2. Square");
+            System.out.println("3. Circle");
+            System.out.println("4. Triangle");
+            System.out.print("Enter your choice: ");
+            ch = sc.nextInt();
+
+            switch (ch) {
+
+                case 1:
+                    System.out.print("Enter length: ");
+                    double l = sc.nextDouble();
+                    System.out.print("Enter breadth: ");
+                    double b = sc.nextDouble();
+                    System.out.println("Area of Rectangle: " + obj.area(l, b));
+                    break;
+
+                case 2:
+                    System.out.print("Enter side: ");
+                    int s = sc.nextInt();
+                    System.out.println("Area of Square: " + obj.area(s));
+                    break;
+
+                case 3:
+                    System.out.print("Enter radius: ");
+                    double r = sc.nextDouble();
+                    System.out.println("Area of Circle: " + obj.area(r));
+                    break;
+
+                case 4:
+                    System.out.print("Enter base: ");
+                    int base = sc.nextInt();
+                    System.out.print("Enter height: ");
+                    double h = sc.nextDouble();
+                    System.out.println("Area of Triangle: " + obj.area(base, h));
+                    break;
+
+                default:
+                    System.out.println("Invalid ch!");
+            }
+
+            System.out.print("\nDo you want to continue? (y/n): ");
+            wish = sc.next().charAt(0);
+
+        } while (wish == 'y' || wish == 'Y');
+
+        sc.close();
+        System.out.println("Program Ended.");
+    }
+}
