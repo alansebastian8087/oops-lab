@@ -80,3 +80,4 @@ public class AreaCalculator {
         System.out.println("Program Ended.");
     }
 }
+
